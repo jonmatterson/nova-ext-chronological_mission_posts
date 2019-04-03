@@ -2,12 +2,6 @@
 
 This extension provides a standardized mechanism for tracking the day and time of a post within a mission and a way of reading the entire mission in an eBook-style format ordered in chronological order based on the mission day and time of posts.
 
-Specifically, this extension does the following:
-
-* Replaces `Timeline` field in mission post creation with `Mission Day` and `Time` fields, where mission day should be an integer representing how many days into the mission is, and the time should be a value of the format `0000` through `2359`. It uses the `Timepicker` extension to help post writers specify the mission time.
-* Replaces the  `Timeline` display in mission post viewing with a standard display of the mission day and time.
-* Provides an eBook-style view for reading mission posts in chronological order. This can be accessed from a `Read Story` button when looking at the mission.
-
 ## Requirements
 
 This extension requires:
@@ -37,3 +31,21 @@ $config['extensions']['enabled'][] = 'chronological_mission_posts';
 ```
 
 If you are already including `jquery` and/or `timepicker` in your extension config, you do not need to include them twice. Instead, simply ensure they are loaded before the `chronological_mission_posts` extension.
+
+## Usage
+
+This extension does the following:
+
+* Replaces `Timeline` field in mission post creation with `Mission Day` and `Time` fields, where mission day should be an integer representing how many days into the mission is, and the time should be a value of the format `0000` through `2359`. It uses the `Timepicker` extension to help post writers specify the mission time.
+* Replaces the  `Timeline` display in mission post viewing with a standard display of the mission day and time.
+* Provides an eBook-style view for reading mission posts in chronological order. This can be accessed from a `Read Story` button when looking at the mission.
+
+## Issues
+
+If you encounter a bug or have a feature request, please report it on GitHub in the issue tracker here: https://github.com/jonmatterson/nova-ext-chronological_mission_posts/issues
+
+## License
+
+Copyright (c) 2018-2019 Jon Matterson.
+
+This module is open-source software licensed under the **MIT License**. The full text of the license may be found in the `LICENSE` file.
