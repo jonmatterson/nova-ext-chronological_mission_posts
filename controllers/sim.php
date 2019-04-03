@@ -28,7 +28,7 @@ class __extensions__chronological_mission_posts__sim extends Nova_controller_mai
     {
       $data = [
 				'mission_id' => $mission_id,
-				'mission_url' => base_url('sim/missions/id/'.$mission_id),
+				'mission_url' => site_url('sim/missions/id/'.$mission_id),
 				'title' => ucfirst(lang('global_missions')).' - '.$this->mis->get_mission($mission_id, 'mission_title'),
 				'labels' => [
 					'characters' => 'Featuring:',
