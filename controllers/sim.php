@@ -71,7 +71,7 @@ class __extensions__chronological_mission_posts__sim extends Nova_controller_mai
             'id' => $post->post_id,
             'title' => $post->post_title,
             'characters' => $this->char->get_authors($post->post_authors, true, true),
-            'timeline' => 'Mission Day '.$post->post_chronological_mission_post_day.' at '.$post->post_chronological_mission_post_time,
+            'timeline' => empty($post->post_timeline) ? ('Mission Day '.$post->post_chronological_mission_post_day.' at '.$post->post_chronological_mission_post_time) : $post->post_timeline,
             'location' => $post->post_location,
             'content' => $post->post_content
           ];

@@ -26,7 +26,7 @@ $this->event->listen(['location', 'view', 'data', 'main', 'sim_listposts'], func
           'id' => $post->post_id,
           'title' => $post->post_title,
           'author' => $this->char->get_authors($post->post_authors, true, true),
-          'date' => 'Mission Day '.$post->post_chronological_mission_post_day.' at '.$post->post_chronological_mission_post_time,
+          'date' => empty($post->post_timeline) ? ('Mission Day '.$post->post_chronological_mission_post_day.' at '.$post->post_chronological_mission_post_time) : $post->post_timeline,
           'location' => $post->post_location,
           'mission' => $this->mis->get_mission($post->post_mission, 'mission_title'),
           'mission_id' => $mission_id
