@@ -4,8 +4,30 @@ $this->event->listen(['location', 'view', 'data', 'admin', 'manage_posts_edit'],
   
   $id = (is_numeric($this->uri->segment(4))) ? $this->uri->segment(4) : false;
   $post = $id ? $this->posts->get_post($id) : null;
+
+  $timepickerOptions = [
+    'timeFormat' => 'HHmm',
+    'defaultTime' =>  $post ? $post->post_chronological_mission_post_time : '0000'
+  ];
+
+  $this->config->load('extensions');
+  $extensionsConfig = $this->config->item('extensions');
   
-  $event['data']['label']['chronological_mission_post_day'] = 'Mission Day';
+  if(!empty($extensionsConfig['chronological_mission_posts']['timepicker_options'])){
+    foreach($extensionsConfig['chronological_mission_posts']['timepicker_options'] as $key => $value){
+      $timepickerOptions[$key] = $value;
+    }
+  }
+  
+  $editDayLabel = isset($extensionsConfig['chronological_mission_posts']['label_edit_day'])
+                        ? $extensionsConfig['chronological_mission_posts']['label_edit_day']
+                        : 'Mission Day';
+
+  $editTimeLabel = isset($extensionsConfig['chronological_mission_posts']['label_edit_time'])
+                        ? $extensionsConfig['chronological_mission_posts']['label_edit_time']
+                        : 'Time';
+  
+  $event['data']['label']['chronological_mission_post_day'] = $editDayLabel;
   $event['data']['inputs']['chronological_mission_post_day'] = array(
     'name' => 'chronological_mission_post_day',
     'id' => 'chronological_mission_post_day',
@@ -20,14 +42,11 @@ $this->event->listen(['location', 'view', 'data', 'admin', 'manage_posts_edit'],
     'value' => $post ? $post->post_chronological_mission_post_day : '1'
   );
   
-  $event['data']['label']['chronological_mission_post_time'] = 'Time';
+  $event['data']['label']['chronological_mission_post_time'] = $editTimeLabel;
   $event['data']['inputs']['chronological_mission_post_time'] = array(
     'name' => 'chronological_mission_post_time',
     'id' => 'chronological_mission_post_time',
-    'data-timepicker' => str_replace('"', '&quot;', json_encode([
-      'timeFormat' => 'HHmm',
-      'defaultTime' =>  $post ? $post->post_chronological_mission_post_time : '0000'
-    ])),
+    'data-timepicker' => str_replace('"', '&quot;', json_encode($timepickerOptions)),
     'value' => $post ? $post->post_chronological_mission_post_time : '0000'
   );
   
