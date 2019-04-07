@@ -10,6 +10,12 @@ This extension requires:
 - Nova Extension [`jquery`](https://github.com/jonmatterson/nova-ext-jquery)
 - Nova Extension [`timepicker`](https://github.com/jonmatterson/nova-ext-timepicker)
 
+This extension recommends:
+
+- Nova Mod [`parser events`](https://xtras.anodyne-productions.com/item/JonM/parser-events)
+
+Without `parser events`, the post notification emails will not include the new timeline field.
+
 ## Installation
 
 Copy the entire directory into `applications/extensions/chronological_mission_posts`.
