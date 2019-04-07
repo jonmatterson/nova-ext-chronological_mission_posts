@@ -16,6 +16,10 @@ $this->event->listen(['location', 'view', 'data', 'main', 'sim_missions_one'], f
   $viewSuffixLabel = isset($extensionsConfig['chronological_mission_posts']['label_view_suffix'])
                         ? $extensionsConfig['chronological_mission_posts']['label_view_suffix']
                         : '';
+
+  $postOrderColumnFallback = isset($extensionsConfig['chronological_mission_posts']['post_order_column_fallback'])
+                        ? $extensionsConfig['chronological_mission_posts']['post_order_column_fallback']
+                        : 'post_date';
   
   $event['data']['posts'] = [];
 
@@ -24,7 +28,7 @@ $this->event->listen(['location', 'view', 'data', 'main', 'sim_missions_one'], f
   $this->db->where('post_status', 'activated');
   $this->db->order_by('post_chronological_mission_post_day', 'desc');
   $this->db->order_by('post_chronological_mission_post_time', 'desc');
-  $this->db->order_by('post_date', 'desc');
+  $this->db->order_by($postOrderColumnFallback, 'desc');
   $this->db->limit(25, 0);
   $posts = $this->db->get();
 

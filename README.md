@@ -50,6 +50,12 @@ $config['extensions']['chronological_mission_posts'] = [];
 
 Below that line, you can then specify additional options as described in the rest of this section.
 
+If you would like to change the order of your old posts (from before this mod was installed), while the default is by post time, you could for example order them by their timeline field if you formerly used Jonathan's Sort by Timeline mod:
+
+```
+$config['extensions']['chronological_mission_posts']['post_order_column_fallback'] = 'post_timeline';
+```
+
 If you would like to configure the timepicker, add the following:
 
 ```
