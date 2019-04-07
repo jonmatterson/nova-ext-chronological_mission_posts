@@ -102,7 +102,29 @@ Finally, to change the style of the Read Story button, one may define styles thr
 
 ```
 .chronological_mission_posts--sim_missions--read-story {
-    /* your styles... */
+    /* your link styles... */
+}
+
+.chronological_mission_posts--sim_missions--read-story button {
+    /* your button styles... */
+}
+```
+
+For example, you could make a dark grey button with the style:
+
+```
+.chronological_mission_posts--sim_missions--read-story button {
+    border-color: #999;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+    background: #333;
+    background: -moz-linear-gradient(top, #333 0%, #777 50%, #555 51%, #555 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333), color-stop(50%,#777), color-stop(51%,#778b70), color-stop(100%,#778b70));
+    background: -webkit-linear-gradient(top, #333 0%,#777 50%,#555 51%,#555 100%);
+    background: -o-linear-gradient(top, #333 0%,#777 50%,#555 51%,#555 100%);
+    background: -ms-linear-gradient(top, #333 0%,#777 50%,#555 51%,#555 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555',GradientType=0 );
+    background: linear-gradient(top, #333 0%,#777 50%,#555 51%,#555 100%);
 }
 ```
 
