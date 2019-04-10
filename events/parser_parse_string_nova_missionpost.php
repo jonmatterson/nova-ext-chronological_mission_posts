@@ -2,7 +2,10 @@
 
 $this->event->listen(['parser', 'parse_string', 'output', 'write', 'missionpost'], function($event){
     
-    if(!empty($this->input->post('chronological_mission_post_day')) && !empty($this->input->post('chronological_mission_post_time'))){
+    $chronologicalMissionPostDay = $this->input->post('chronological_mission_post_day');
+    $chronologicalMissionPostTime = $this->input->post('chronological_mission_post_time');
+    
+    if(!empty($chronologicalMissionPostDay) && !empty($chronologicalMissionPostTime)){
         
             $this->config->load('extensions');
             $extensionsConfig = $this->config->item('extensions');
